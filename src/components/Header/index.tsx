@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './styles.css'
 
 import {FiMenu} from 'react-icons/fi'
 
 const Header: React.FC = () =>{
+
+    const [menuOpen, setMenuOpen] = useState<boolean>(true);
     return(
         <header>
             <a href="https://github.com/Reis567" target='_blank'rel="noreferrer">
@@ -11,7 +13,10 @@ const Header: React.FC = () =>{
                     Reis567
                 </h1>
             </a>
-            <FiMenu className='hamburguer'/>
+            <FiMenu className='hamburguer' onClick={()=>{
+                setMenuOpen(!menuOpen)
+            }}/>
+            {menuOpen && (
 
             <nav>
                 <h3>
@@ -35,6 +40,7 @@ const Header: React.FC = () =>{
                     </a>
                 </h3>
             </nav>
+            )}
         </header>
     )
 }
