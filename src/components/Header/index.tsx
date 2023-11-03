@@ -11,8 +11,8 @@ const Header: React.FC = () =>{
                     Reis567
                 </h1>
             </a>
-            <FiMenu/>
-            
+            <FiMenu className='hamburguer'/>
+
             <nav>
                 <h3>
                     <a href="#">

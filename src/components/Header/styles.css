@@ -22,14 +22,25 @@ header a {
 header nav{
     margin-right: 80px;
     display: flex;
-    width: 30%;
+    width: 25%;
     justify-content: space-around;
 }
 header nav a{
     padding: 10px;
 }
+.hamburguer{
+    display: none;
+}
 
 @media (max-width: 764px) {
+    .hamburguer{
+        display: block;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 30px;
+        position: absolute;
+        right: 2.6rem;
+    }
     header{
         flex-direction: column;
     }
