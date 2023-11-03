@@ -7,13 +7,23 @@ const Header: React.FC = () =>{
 
     const [menuOpen, setMenuOpen] = useState<boolean>(true);
 
-    useEffect(()=>{
-        window.addEventListener('resize',()=>{
-            if (window.innerWidth> 764){
-                setMenuOpen(true)
-            }
-        })
-    });
+    useEffect(() => {
+        const handleResize = () => {
+          if (window.innerWidth > 764) {
+            setMenuOpen(true);
+          } else {
+            setMenuOpen(false);
+          }
+        };
+      
+        // Adicione o ouvinte de evento e especifique a função de limpeza
+        window.addEventListener('resize', handleResize);
+      
+        // Retire o ouvinte de evento quando o componente é desmontado
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
     return(
         <header>
             <a href="https://github.com/Reis567" target='_blank'rel="noreferrer">
@@ -23,7 +33,9 @@ const Header: React.FC = () =>{
             </a>
             <FiMenu className='hamburguer' onClick={()=>{
                 setMenuOpen(!menuOpen)
-            }}/>
+                }}
+                aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+            />
             {menuOpen && (
 
             <nav>
