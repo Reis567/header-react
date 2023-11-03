@@ -6,6 +6,14 @@ import {FiMenu} from 'react-icons/fi'
 const Header: React.FC = () =>{
 
     const [menuOpen, setMenuOpen] = useState<boolean>(true);
+
+    useEffect(()=>{
+        window.addEventListener('resize',()=>{
+            if (window.innerWidth> 764){
+                setMenuOpen(true)
+            }
+        })
+    });
     return(
         <header>
             <a href="https://github.com/Reis567" target='_blank'rel="noreferrer">
